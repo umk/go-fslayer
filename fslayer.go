@@ -12,9 +12,6 @@ type (
 	// Extends the file system abstraction with new methods.
 	storage interface {
 		billy.Filesystem
-		// RemoveAll removes path and any children it contains. It removes
-		// everything it can but returns the first error it encounters. If the path
-		// does not exist, RemoveAll returns nil (no error).
 		RemoveAll(path string) error
 	}
 
@@ -68,10 +65,16 @@ func UseStorageDevice() {
 // -----------------------------------------------------------------------------
 // Storage implementation
 
+// RemoveAll removes path and any children it contains. It removes everything it
+// can but returns the first error it encounters. If the path does not exist,
+// RemoveAll returns nil (no error).
 func (ms memoryStorage) RemoveAll(path string) error {
 	return ms.Remove(path)
 }
 
+// RemoveAll removes path and any children it contains. It removes everything it
+// can but returns the first error it encounters. If the path does not exist,
+// RemoveAll returns nil (no error).
 func (sd storageDevice) RemoveAll(path string) error {
 	return os.RemoveAll(path)
 }
