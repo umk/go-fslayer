@@ -10,7 +10,7 @@ import (
 
 type (
 	// Extends the file system abstraction with new methods.
-	storage interface {
+	Storage interface {
 		billy.Filesystem
 		RemoveAll(path string) error
 	}
@@ -29,10 +29,10 @@ type (
 // -----------------------------------------------------------------------------
 // Storage initialization
 
-var root storage
+var root Storage
 
 // Fs gets the root file system object.
-func Fs() storage {
+func Fs() Storage {
 	if root == nil {
 		panic("file system has not been initialized")
 	}
@@ -41,7 +41,7 @@ func Fs() storage {
 
 // setRoot checks that root file system object has not been initialized yet, and
 // then assigns provided object as root.
-func setRoot(fs storage) {
+func setRoot(fs Storage) {
 	if root != nil {
 		panic("file system has already been initialized")
 	}
