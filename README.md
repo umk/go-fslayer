@@ -24,9 +24,9 @@ import . "github.com/umk/go-fslayer"
 
 func DoSmth() {
 	f, err := Fs().Open("/foo/bar.txt")
-	// ...
+	/* ... */
 }
 ```
 If `Fs()` is used without the storage type initialized, like shown before, the application will panic.
 
-See this package's GoDoc reference and documentation for go-billy's [osfs](https://godoc.org/gopkg.in/src-d/go-billy.v4/osfs) and [memfs](https://godoc.org/gopkg.in/src-d/go-billy.v4/memfs) for the list of functions available.
+See this package's GoDoc reference and documentation for go-billy's [osfs](https://godoc.org/gopkg.in/src-d/go-billy.v4/osfs) and [memfs](https://godoc.org/gopkg.in/src-d/go-billy.v4/memfs) for the list of the functions available.
